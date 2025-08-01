@@ -356,6 +356,137 @@ slide_presentation_generator/
    # Open http://localhost:8000 in browser
    ```
 
+### Example: Creating a Team Transformation Presentation with AI
+
+Here's a comprehensive example of how to create an energizing team presentation using AI tools:
+
+#### 1. Start with Your Raw Content
+
+Provide your presentation content to an AI assistant. For example:
+
+```
+Create a slide presentation with upbeat/energetic tone. Here's my content:
+
+Tomorrow morning we're having a prime team meeting, and I'm excited about what we're going to discuss.
+I know the September 30th deadline feels overwhelming right now - and that's totally understandable. 
+But here's the thing: this is our moment to level up and become the absolute best AI-assisted 
+development team we can be. This is our call to arms!
+
+We're making some game-changing moves:
+- We're becoming ONE unified team - no more front-end vs back-end silos
+- We're unleashing you as developers - no more mandatory PRs!
+- Direct communication wins - got a question? Slack whoever can answer it directly
+- Marite's joining our scrums - closing that design-dev communication gap
+- Daily AI skill building - invest time each day getting better with AI coding
+- Weekly CodeRabbit improvements - who can own this for us?
+- Supercharged development cycle - smaller stories that ship as complete work
+- Daily commits, daily deliverables - everyone commits code every single day
+- QA gets fed daily - with 4-6 developers all following this method
+- The whole system flows - everything just works more smoothly
+```
+
+#### 2. Study the Example Structure
+
+Look at `ai_presentation_2025.json` to understand:
+- **Visual consistency through `style_prompt`** (line 28): A base prompt used for ALL backgrounds
+- **Individual slide prompts** that build on the base style while adding unique concepts
+- **Text zone specifications** in prompts (e.g., "left third (0-640px) kept dark for text overlay")
+- **Color palette consistency** across all visual elements
+
+#### 3. Understand Schema Requirements
+
+Reference `presentation.schema.json` to ensure your JSON includes:
+- All required sections: `meta`, `visual_identity`, `layout_system`, `asset_config`, `slides`, `runtime_config`
+- Proper formatting for colors (hex for primary colors)
+- Valid layout types: `title-slide`, `lf`, `rf`, `tb`, `tl`, `tr`, `bl`, `br`
+- Correct filename patterns: `SLIDE-XX-Concept.png` for backgrounds, `IC-Name.png` for icons
+
+#### 4. AI Creates Your Presentation JSON
+
+The AI will generate a complete JSON schema with:
+
+**Visual Identity** (maintaining consistency):
+```json
+"style_prompt": "Bright energetic workspace; vibrant orange #FF6B35 + electric blue #0077FF with warm yellow #FFC947 accents; natural lighting with motion blur suggesting speed; clean modern tech environment; high contrast dynamic compositions; 8K sharp render; no watermarks.",
+```
+
+**Individual Slide Backgrounds** (building on base style):
+```json
+"prompt": "Team of diverse developers silhouettes at sunrise on mountain peak, arms raised in victory pose; golden orange sunburst with speed lines radiating outward; middle 40% kept darker for title overlay; sense of triumph and new beginnings."
+```
+
+**Matching Tone to Content**:
+- Energetic content → Bright, dynamic colors (orange, blue, yellow)
+- Professional content → Deep, sophisticated colors (indigo, violet, teal)
+- Technical content → Clean, modern aesthetics with tech elements
+
+#### 5. Validate Your Schema
+
+Before generating assets:
+```bash
+python3 validate_schema.py team_transformation_sept30.json
+```
+
+This catches:
+- Missing required fields
+- Invalid color formats
+- Incorrect filename patterns
+- JSON syntax errors
+
+#### 6. Generate Your Presentation
+
+```bash
+# First time setup
+./setup.sh
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Generate presentation
+python3 generate_from_schema.py team_transformation_sept30.json
+```
+
+#### 7. View Your Results
+
+```bash
+cd build/team-transformation-sept30/current
+python3 -m http.server 8000
+# Open http://localhost:8000 in browser
+```
+
+### Key Tips for Consistent AI-Generated Backgrounds
+
+1. **Base Style Prompt**: Define once in `visual_identity.style_prompt`
+   - Include color palette with hex codes
+   - Specify lighting and atmosphere
+   - Add technical requirements (8K, no watermarks, etc.)
+
+2. **Individual Prompts**: Each slide's `background.prompt`
+   - Start with unique concept/scene
+   - Include base style elements
+   - Specify text zones explicitly
+   - Maintain visual vocabulary
+
+3. **Color Consistency**:
+   - Always reference your hex colors in prompts
+   - Use same lighting approach throughout
+   - Keep similar compositional rules
+
+4. **Text Zone Protection**:
+   - Explicitly state which areas to keep dark
+   - Use pixel measurements (0-640px, 720-1080px)
+   - Match zones to your layout system
+
+### Example Visual Consistency Pattern
+
+```
+Base: "vibrant orange #FF6B35 + electric blue #0077FF; bright workspace"
+Slide 1: "[unique scene]; [base colors]; [text zone dark]"
+Slide 2: "[different scene]; [same base colors]; [appropriate text zone dark]"
+```
+
+This ensures every background feels part of the same presentation while having unique visual interest!
+
 ### Updating a Presentation
 
 Simply edit your schema and regenerate:
