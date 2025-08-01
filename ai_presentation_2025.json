@@ -1,0 +1,594 @@
+{
+  "meta": {
+    "title": "Embracing AI: A Developer's Journey into the Future",
+    "short_name": "ai-dev-v4-saved",
+    "version": "1.0.0",
+    "created": "2025-06-23",
+    "theme": "ai_developer_transformation",
+    "description": "Professional presentation about AI transformation in software development"
+  },
+
+  "visual_identity": {
+    "colors": {
+      "primary": "#2D2F92",
+      "secondary": "#6F3EDD",
+      "accent": "#15D4C8",
+      "text_primary": "#FFFFFF",
+      "text_secondary": "rgba(255,255,255,0.9)",
+      "overlay_bg": "rgba(0,0,0,0.88)",
+      "border": "rgba(21,212,200,0.3)"
+    },
+    "typography": {
+      "font_family": "'Inter', 'Segoe UI', 'Roboto', sans-serif",
+      "title_size": "2.8vw",
+      "subtitle_size": "1.8vw",
+      "body_size": "1.3vw",
+      "small_size": "1.2vw"
+    },
+    "style_prompt": "Modern, futuristic, minimalistic; palette deep indigo #2D2F92 + violet #6F3EDD with electric teal #15D4C8 highlights; soft volumetric glow; cinematic lighting; ultra sharp 8K render; no watermarks; avoid clutter; high subject to background contrast.",
+    "atmosphere": "Forward thinking technology environment with soft volumetric lighting and atmospheric depth"
+  },
+
+  "layout_system": {
+    "layouts": {
+      "title-slide": {
+        "description": "Centered title & subtitle opening slide",
+        "text_position": "center_center",
+        "text_zone": "Middle 40% of canvas kept darker",
+        "max_width": "60vw"
+      },
+      "lf": {
+        "description": "Visual right, text left",
+        "text_position": "left_center",
+        "text_zone": "0-640 px",
+        "max_width": "28vw"
+      },
+      "rf": {
+        "description": "Visual left, text right",
+        "text_position": "right_center",
+        "text_zone": "1280-1920 px",
+        "max_width": "28vw"
+      },
+      "tb": {
+        "description": "Banner / visual top, text bottom",
+        "text_position": "bottom_center",
+        "text_zone": "720-1080 px",
+        "max_width": "50vw"
+      },
+      "tl": {
+        "description": "Visual bottom/right, text top-left",
+        "text_position": "top_left",
+        "text_zone": "0-640 px top",
+        "max_width": "28vw"
+      },
+      "tr": {
+        "description": "Visual bottom/left, text top-right",
+        "text_position": "top_right",
+        "text_zone": "1280-1920 px top",
+        "max_width": "28vw"
+      },
+      "bl": {
+        "description": "Visual top/right, text bottom-left",
+        "text_position": "bottom_left",
+        "text_zone": "0-640 px bottom",
+        "max_width": "28vw"
+      },
+      "br": {
+        "description": "Visual top/left, text bottom-right",
+        "text_position": "bottom_right",
+        "text_zone": "1280-1920 px bottom",
+        "max_width": "28vw"
+      }
+    }
+  },
+
+  "asset_config": {
+    "dimensions": {
+      "background": { 
+        "generation_size": "1792x1024", 
+        "final_size": [1920, 1080] 
+      },
+      "icons": { 
+        "generation_size": "1024x1024", 
+        "final_size": [350, 350] 
+      }
+    },
+    "naming_convention": "SLIDE-{slide_number:02d}-{concept_name}.png",
+    "dalle_model": "dall-e-3"
+  },
+
+  "slides": [
+    {
+      "id": "01",
+      "layout": "title-slide",
+      "content": {
+        "title": "Embracing AI",
+        "subtitle": "Future-Proofing Your Dev Career"
+      },
+      "presenterNotes": "Open with energy: the ground is shifting—this is our map.",
+      "background": {
+        "filename": "SLIDE-01-Gateway.png",
+        "concept": "Gateway",
+        "prompt": "Epic scene: developer silhouette stepping through glowing AI portal; flowing code streams and neural mesh patterns; middle 40% kept darker for title overlay.",
+        "text_zones": { 
+          "primary": "center 40%" 
+        }
+      }
+    },
+    {
+      "id": "02",
+      "layout": "lf",
+      "content": {
+        "title": "Why Dave is so Invested in This Moment",
+        "bullets": [
+          "25 yrs riding every tech wave",
+          "SaaS → Web 2. 0 Rails → Mobile → Big Data → Blockchain → AI",
+          "Network = builders who run toward the new",
+          "Goal: join me as we map the next wave together"
+        ]
+      },
+      "presenterNotes": "Humble tone—emphasize curiosity, credit community.",
+      "background": {
+        "filename": "SLIDE-02-Timeline.png",
+        "concept": "Timeline",
+        "prompt": "Diagonal upward path of electric teal light with tech evolution icons (SaaS cloud, Rails gem, mobile phone, database, blockchain, AI brain); left third (0-640px) kept dark for text overlay; deep indigo background.",
+        "text_zones": { 
+          "primary": "left third (0-640px)" 
+        }
+      }
+    },
+    {
+      "id": "03",
+      "layout": "tb",
+      "content": {
+        "title": "Why This Matters Today",
+        "bullets": [
+          "\"AI could cut 50% of entry-level jobs\" — Amodei",
+          "Microsoft: 20-30% of code now AI-written",
+          "\"AI outpaces Moore's Law\" — Huang",
+          "GitHub Copilot → 55% faster coding",
+          "OpenAI: capability 10× per year"
+        ],
+        "links": [
+          {
+            "text": "Amodei's warning",
+            "url": "https://fortune.com/2025/05/28/anthropic-ceo-warning-ai-job-loss/"
+          },
+          {
+            "text": "Microsoft AI code statistics",
+            "url": "https://techcrunch.com/2025/04/29/microsoft-ceo-says-up-to-30-of-the-companys-code-was-written-by-ai/"
+          },
+          {
+            "text": "Jensen Huang AI vs Moore's Law",
+            "url": "https://techcrunch.com/2025/01/07/nvidia-ceo-says-his-ai-chips-are-improving-faster-than-moores-law/"
+          },
+          {
+            "text": "GitHub Copilot productivity research",
+            "url": "https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/"
+          }
+        ]
+      },
+      "presenterNotes": "Quote sources—this is happening now, not theoretical.",
+      "background": {
+        "filename": "SLIDE-03-Constellation.png",
+        "concept": "Constellation",
+        "prompt": "Holographic timeline of AI models (GPT-4o, Claude 3.5, Devin, Gemini 1.5) as floating constellation nodes with connecting energy streams; bottom third (720-1080px) kept dark for text overlay; deep indigo gradient background.",
+        "text_zones": { 
+          "primary": "bottom third (720-1080px)" 
+        }
+      }
+    },
+    {
+      "id": "04",
+      "layout": "lf",
+      "content": {
+        "title": "People who win - develop their AI superpowers",
+        "bullets": [
+          "Product Managers can do design",
+          "Designers can build POC, prototypes, and more",
+          "CEOs can vibe code their MVP",
+          "Devs can do the whole entire workflow",
+          "What will be your flavor? - TDD , Refactor, Vibe Coder, Multi Tasking Master???"
+        ],
+        "links": [
+          {
+            "text": "AI Coding Assistants Boost Productivity by 26%",
+            "url": "https://itrevolution.com/articles/new-research-reveals-ai-coding-assistants-boost-developer-productivity-by-26-what-it-leaders-need-to-know/"
+          },
+          {
+            "text": "Best AI Workflow Practices for Developers 2025",
+            "url": "https://www.qodo.ai/blog/leveraging-ai-to-enhance-your-coding-workflow/"
+          },
+          {
+            "text": "Google official internal guidance on using AI for coding",
+            "url": "https://www.techradar.com/pro/google-issues-official-internal-guidance-on-using-ai-for-coding-and-its-devs-might-not-be-best-pleased"
+          }
+        ]
+      },
+      "presenterNotes": "Shift perspective from fear to creativity—AI amplifies human potential.",
+      "background": {
+        "filename": "SLIDE-04-Transformation.png",
+        "concept": "Transformation",
+        "prompt": "Split scene developer transformation: left shows classic coding silhouette, right shows AI-assisted developer with holographic code helpers; dramatic lighting contrast; right third (1280-1920px) kept dark for text overlay.",
+        "text_zones": { 
+          "primary": "right third (1280-1920px)" 
+        }
+      }
+    },
+
+    {
+      "id": "06",
+      "layout": "tb",
+      "content": {
+        "title": "Build Your AI Toolkit",
+        "subtitle": "Experiment and change often",
+        "bullets": [
+          "Cursor/Co-Pilot IDE pair-programming",
+          "Claude / Codex agents / Cursor Background Agent",
+          "CodeRabbit PR insights",
+          "Voice coding flow"
+          
+        ],
+        "links": [
+          
+            {
+              "text": "Cursor: Your AI-Powered Code Editor, Always-On Pair Programmer",
+              "url": "https://devopslearning.medium.com/cursor-your-ai-powered-code-editor-always-on-pair-programmer-or-just-hype-my-honest-review-a799e9466b26"
+            },
+            {
+              "text": "AI Code Review Tool — CodeRabbit Replaces Me And I Like It",
+              "url": "https://tomaszs2.medium.com/ai-code-review-tool-coderabbit-replaces-me-and-i-like-it-b1350a9cda58"
+            },
+            {
+              "text": "Speech-to-Code: Vibe Coding with Voice",
+              "url": "https://addyo.substack.com/p/speech-to-code-vibe-coding-with-voice"
+            },
+            {
+              "text": "Harper on Claude Code",
+              "url": "https://harper.blog/2025/05/08/basic-claude-code/"
+            }
+           
+        ]
+      },
+      "presenterNotes": "One anecdote per tool—share personal experience with each.",
+      "background": {
+        "filename": "SLIDE-06-Workstation.png",
+        "concept": "Workstation",
+        "prompt": "Isometric holographic developer workstation with floating screens showing Cursor IDE, CodeRabbit diff view, Claude chat, voice waveform; glowing interfaces; bottom third (720-1080px) kept dark for text overlay.",
+        "text_zones": { 
+          "primary": "bottom third (720-1080px)" 
+        }
+      }
+    },
+
+    {
+      "id": "08",
+      "layout": "rf",
+      "content": {
+        "title": "Configure Your Coding Assistant",
+        "bullets": [
+          "Rules files must evolve",
+          "Memory bank for working memory",
+          "MDC files for granular context",
+          "Plan files with checklists",
+          "Rules must continuously improve",
+          "Review, review, review"
+        ],
+        "links": [
+          {
+            "text": "GitHub - vanzan01/cursor-memory-bank",
+            "url": "https://github.com/vanzan01/cursor-memory-bank"
+          },
+          {
+            "text": "Plan Smarter, Code Faster: Cline's Plan & Act is the Paradigm for Agentic Coding",
+            "url": "https://cline.bot/blog/plan-smarter-code-faster-clines-plan-act-is-the-paradigm-for-agentic-coding"
+          },
+          {
+            "text": "Windsurf AI Rules: A Guide to Windsurf.ai Prompting",
+            "url": "https://uibakery.io/blog/windsurf-ai-rules"
+          },
+          {
+            "text": "How to MCP",
+            "url": "https://simplescraper.io/blog/how-to-mcp"
+          }
+        ],
+        "icons": ["IC-Arrow.png"]
+      },
+      "presenterNotes": "Show markdown scratchpad with prompts & notes—working memory example.",
+      "background": {
+        "filename": "SLIDE-08-Loop.png",
+        "concept": "Loop",
+        "prompt": "Elegant looping arrow made of flowing teal light particles showing iterative process; centered visual with energy trails; right third (1280-1920px) kept dark for text overlay.",
+        "text_zones": { 
+          "primary": "right third (1280-1920px)" 
+        }
+      }
+    },
+    {
+      "id": "05",
+      "layout": "lf",
+      "content": {
+        "title": "Start With AI, Plan, Act, Commit",
+        "bullets": [
+          "Start with AI on every task - seriously",
+          "Plan → Review → Act → Review",
+          "Commit often",
+          "Share wins & fails"
+        ],
+        "links": [
+          {
+            "text": "Basic Claude Code",
+            "url": "https://github.com/harperreed/dotfiles/blob/master/.claude/CLAUDE.md"
+          },
+          {
+            "text": "Cursor Community: Simpler AI Workflow Guide",
+            "url": "https://forum.cursor.com/t/guide-a-simpler-more-autonomous-ai-workflow-for-cursor-new-update/70688"
+          },
+          {
+            "text": "DEV Community: Mastering Cursor AI for Developers",
+            "url": "https://dev.to/mayank_tamrkar/-mastering-cursor-ai-the-ultimate-guide-for-developers-2025-edition-2ihh"
+          },
+          {
+            "text": "GitHub: Cursor Best Practices Repository",
+            "url": "https://github.com/digitalchild/cursor-best-practices"
+          }
+        ]
+      },
+      "presenterNotes": "Consider live demo: prompt → stub → refine workflow.",
+      "background": {
+        "filename": "SLIDE-05-Flowchart.png",
+        "concept": "Flowchart",
+        "prompt": "3D flowchart showing AI-first workflow: diamond 'Start Task' node with neon arrows flowing to AI brain icon, then looping back; electric teal particle effects; left third (0-640px) kept dark for text overlay.",
+        "text_zones": { 
+          "primary": "left third (0-640px)" 
+        }
+      }
+    },
+    {
+      "id": "07",
+      "layout": "tb",
+      "content": {
+        "title": "MCP Servers as super chargers",
+        "subtitle": "Model Context Protocol",
+        "bullets": [
+          "Browser tools - console, network, etc",
+          "GitHub integration - grab an issue, create an issue",
+          "Figma integration - pull the component into context",
+          "Database integration - pull the data into context"
+        ],
+        "links": [  
+          {
+            "text": "How to Automate Web Browsing with Puppeteer MCP",
+            "url": "https://apidog.com/blog/puppeteer-mcp-server/"
+          },
+            {
+              "text": "How to Use GitHub MCP Server",
+              "url": "https://apidog.com/blog/github-mcp-server/"
+            },
+            {
+              "text": "How to Setup and Use PostgreSQL MCP Server",
+              "url": "https://medium.com/towards-agi/how-to-setup-and-use-postgresql-mcp-server-e1c7ad2edc52"
+            },
+            {
+              "text": "Introducing our Dev Mode MCP server: Bringing Figma into your workflow",
+              "url": "https://www.figma.com/blog/introducing-figmas-dev-mode-mcp-server/"
+            }
+        ]
+      },
+      "presenterNotes": "Describe 2-week MCP validation roadmap—practical next steps.",
+      "background": {
+        "filename": "SLIDE-07-NeuralHub.png",
+        "concept": "NeuralHub",
+        "prompt": "Central neural connection hub with energy streams radiating to platform nodes (Chrome, GitHub, Figma icons); pulsing data flows; organic tech design; bottom third (720-1080px) kept dark for text overlay.",
+        "text_zones": { 
+          "primary": "bottom third (720-1080px)" 
+        }
+      }
+    },
+    {
+      "id": "10",
+      "layout": "lf",
+      "content": {
+        "title": "This Is Your Moment to Architect",
+        "bullets": [
+          "Allow AI to write the repeatable code",
+          "Focus on patterns and guide AI to use them",
+          "Use AI to give you an opinion about your approach",
+          "Journalling with AI",
+          "Level up your planning approach"
+        ],
+        "links": [
+          {
+            "text": "Journalling with AI",
+            "url": "https://www.devas.life/how-to-automate-development-journaling-with-claude-code/#:~:text=You%20can%20instruct%20Claude%20Code,challenges%20you%20faced%3E%20..."
+          }
+        ]
+      },
+
+      "presenterNotes": "Jeetu Patel quote on creative edge—architects become more valuable, not less.",
+      "background": {
+        "filename": "SLIDE-10-Architect.png",
+        "concept": "Architect",
+        "prompt": "Architect figure commanding holographic microservices blueprint with tiny AI robots handling details; 3D system topology floating in space; left third (0-640px) kept dark for text overlay.",
+        "text_zones": { 
+          "primary": "left third (0-640px)" 
+        }
+      }
+    },
+
+
+    {
+      "id": "11",
+      "layout": "tb",
+      "content": {
+        "title": "The Real Nuts Are the Skeptics",
+        "bullets": [
+          "AI makes a mess of the codebase",
+          "AI creates insecure code",
+          "I can type faster than AI",
+          "--------------",
+          "Remember:This is the worse it is every going to be",
+          "Remember: OpenAI say capability 10x per year"
+        ],
+        "links": [
+          {
+            "text": "Fly.io: You're All Nuts",
+            "url": "https://fly.io/blog/youre-all-nuts/"
+          },
+          {
+            "text": "My Friend Nico",
+            "url": "https://www.linkedin.com/posts/nicovalencia_ai-productivity-coding-activity-7338369417883357184-GiJd?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAzDuQBmnhDEjWU0ZN7kbosFdbD97xBlZE"
+          }
+        ]
+      },
+      "presenterNotes": "Hands-up poll; invite reflection—who's tried AI this week?",
+      "background": {
+        "filename": "SLIDE-11-Evolution.png",
+        "concept": "Evolution",
+        "prompt": "Cultural evolution scene: left shows grayscale skeptic silhouette dissolving, right shows vibrant teal AI-powered developer emerging; particle transformation effect; bottom third (720-1080px) kept dark for text overlay.",
+        "text_zones": { 
+          "primary": "bottom third (720-1080px)" 
+        }
+      }
+    },
+    {
+      "id": "12",
+      "layout": "tb",
+      "content": {
+        "title": "The New Developer Mindset",
+        "bullets": [
+          "Start now",
+          "Keep what 10×s you",
+          "Share discoveries",
+          "Stay curious & accountable"
+        ],
+        "icons": ["IC-Bolt.png", "IC-Arrow.png", "IC-Chat.png", "IC-Compass.png"]
+      },
+      "presenterNotes": "Icons: lightning (start), arrow (10×), chat (share), compass (curiosity)—actionable takeaways.",
+      "background": {
+        "filename": "SLIDE-12-Mindset.png",
+        "concept": "Mindset",
+        "prompt": "Abstract neural network forming brain shape with four glowing nodes for mindset principles; electric teal synapses; deep indigo gradient; bottom third (720-1080px) kept dark for text and icon overlay.",
+        "text_zones": { 
+          "primary": "bottom third (720-1080px)" 
+        }
+      }
+    },
+    {
+      "id": "09",
+      "layout": "bl",
+      "content": {
+        "title": "Explore Without Barriers",
+        "bullets": [
+          "Tokens & seats on Spry",
+          "Monthly AI Show-and-Tell",
+          "Stay up to date on Reddit, Hacker News, and other AI channels",
+          "Take the time",
+          "We all need to be continuous learners"
+        ],
+        "links": [
+          {
+            "text": "r/Claude",
+            "url": "https://www.reddit.com/r/Claude/"
+          },
+          {
+            "text": "r/boltnewbuilders",
+            "url": "https://www.reddit.com/r/boltnewbuilders/"
+          },
+          {
+            "text": "r/Cursor",
+            "url": "https://www.reddit.com/r/Cursor/"
+          },
+          {
+            "text": "AI for humans podcast",
+            "url": "https://podcasts.apple.com/us/podcast/ai-for-humans-making-artificial-intelligence-fun-practical/id1682409647"
+          },
+          {
+            "text": "Last week in AI",
+            "url": "https://podcasts.apple.com/us/podcast/last-week-in-ai/id1502782720"
+          }
+        ]
+      },
+      "presenterNotes": "Reference Fly.io 'You're All Nuts'—celebrate boldness and experimentation.",
+      "background": {
+        "filename": "SLIDE-09-Enhancement.png",
+        "concept": "Enhancement",
+        "prompt": "Developer wearing futuristic neuro-interface headset with floating token icons and celebratory particles; sense of freedom and exploration; right third (1280-1920px) kept dark for text overlay.",
+        "text_zones": { 
+          "primary": "right third (1280-1920px)" 
+        }
+      }
+    },
+    {
+      "id": "13",
+      "layout": "tb",
+      "content": {
+        "title": "Let's Lead This Together",
+        "bullets": [
+          "AI rewrote the rulebook • We ride, not resist",
+          "Begin today • Questions?"
+        ],
+        "links": [
+          {
+            "text": "Reuters – 40% of agentic-AI projects scrapped",
+            "url": "https://www.reuters.com/business/over-40-agentic-ai-projects-will-be-scrapped-by-2027-gartner-says-2025-06-25/"
+          }
+        ]
+      },
+      "presenterNotes": "Close with optimism—invite Q&A and commitment to experiment.",
+      "background": {
+        "filename": "SLIDE-13-CodeWave.png",
+        "concept": "CodeWave",
+        "prompt": "Epic stylized ocean wave made of flowing code lines and AI patterns; sunrise gradient from deep indigo to electric teal; sense of momentum; bottom third (720-1080px) kept darker for text overlay.",
+        "text_zones": { 
+          "primary": "bottom third (720-1080px)" 
+        }
+      }
+    }
+  ],
+
+  "icons": [
+    {
+      "filename": "IC-Bolt.png",
+      "prompt": "Minimalist neon-teal outline lightning-bolt icon with inner glow, transparent background.",
+      "transparent": true
+    },
+    {
+      "filename": "IC-Arrow.png",
+      "prompt": "Minimalist neon-teal outline upward-arrow icon with inner glow, transparent background.",
+      "transparent": true
+    },
+    {
+      "filename": "IC-Chat.png",
+      "prompt": "Minimalist neon-teal outline chat-bubble icon with inner glow, transparent background.",
+      "transparent": true
+    },
+    {
+      "filename": "IC-Compass.png",
+      "prompt": "Minimalist neon-teal outline compass icon with inner glow, transparent background.",
+      "transparent": true
+    }
+  ],
+
+  "runtime_config": {
+    "reveal_js": {
+      "transition": "slide",
+      "transition_speed": "default",
+      "background_transition": "fade",
+      "controls": true,
+      "progress": true,
+      "keyboard": true,
+      "touch": true,
+      "hash": true
+    },
+    "responsive_breakpoints": {
+      "tablet": "1200px",
+      "mobile": "768px"
+    },
+    "content_sizing": {
+      "max_height": "70vh",
+      "border_radius": "15px",
+      "backdrop_blur": "12px"
+    }
+  }
+}

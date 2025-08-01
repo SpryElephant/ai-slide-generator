@@ -1,0 +1,390 @@
+{
+  "meta": {
+    "title": "Layout System Demo",
+    "short_name": "layout-demo",
+    "version": "1.0.0",
+    "created": "2025-06-29",
+    "theme": "layout_demonstration",
+    "description": "Demonstrates all 8 available layouts"
+  },
+
+  "visual_identity": {
+    "colors": {
+      "primary": "#2D2F92",
+      "secondary": "#6F3EDD",
+      "accent": "#15D4C8",
+      "text_primary": "#FFFFFF",
+      "text_secondary": "rgba(255,255,255,0.9)",
+      "overlay_bg": "rgba(0,0,0,0.88)",
+      "border": "rgba(21,212,200,0.3)"
+    },
+    "typography": {
+      "font_family": "'Inter', 'Segoe UI', 'Roboto', sans-serif",
+      "title_size": "2.8vw",
+      "subtitle_size": "1.8vw",
+      "body_size": "1.3vw",
+      "small_size": "1.2vw"
+    },
+    "style_prompt": "Simple geometric patterns with clear text zones for layout demonstration",
+    "atmosphere": "Clean and minimal for layout clarity"
+  },
+
+  "layout_system": {
+    "layouts": {
+      "title-slide": {
+        "description": "Centered title & subtitle opening slide",
+        "text_position": "center_center",
+        "text_zone": "Middle 40% of canvas kept darker",
+        "max_width": "60vw"
+      },
+      "lf": {
+        "description": "Visual right, text left",
+        "text_position": "left_center",
+        "text_zone": "0-640 px",
+        "max_width": "28vw"
+      },
+      "rf": {
+        "description": "Visual left, text right",
+        "text_position": "right_center",
+        "text_zone": "1280-1920 px",
+        "max_width": "28vw"
+      },
+      "tb": {
+        "description": "Banner / visual top, text bottom",
+        "text_position": "bottom_center",
+        "text_zone": "720-1080 px",
+        "max_width": "50vw"
+      },
+      "tl": {
+        "description": "Visual bottom/right, text top-left",
+        "text_position": "top_left",
+        "text_zone": "0-640 px top",
+        "max_width": "28vw"
+      },
+      "tr": {
+        "description": "Visual bottom/left, text top-right",
+        "text_position": "top_right",
+        "text_zone": "1280-1920 px top",
+        "max_width": "28vw"
+      },
+      "bl": {
+        "description": "Visual top/right, text bottom-left",
+        "text_position": "bottom_left",
+        "text_zone": "0-640 px bottom",
+        "max_width": "28vw"
+      },
+      "br": {
+        "description": "Visual top/left, text bottom-right",
+        "text_position": "bottom_right",
+        "text_zone": "1280-1920 px bottom",
+        "max_width": "28vw"
+      }
+    }
+  },
+
+  "asset_config": {
+    "dimensions": {
+      "background": {
+        "generation_size": "1792x1024",
+        "final_size": [1920, 1080]
+      },
+      "icons": {
+        "generation_size": "1024x1024",
+        "final_size": [350, 350]
+      }
+    },
+    "naming_convention": "SLIDE-{slide_number:02d}-{concept_name}.png",
+    "dalle_model": "dall-e-3"
+  },
+
+  "slides": [
+    {
+      "id": "01",
+      "layout": "title-slide",
+      "content": {
+        "title": "Layout System Demo",
+        "subtitle": "All 8 Available Layouts",
+        "links": [
+          {
+            "text": "View Documentation",
+            "url": "https://github.com/anthropics/claude-code",
+            "description": "Learn more about Claude Code"
+          },
+          {
+            "text": "Presentation Schema",
+            "url": "https://json-schema.org/",
+            "description": "JSON Schema specification"
+          }
+        ]
+      },
+      "background": {
+        "filename": "SLIDE-01-Title.png",
+        "concept": "Title",
+        "prompt": "Centered geometric pattern with clear dark zone in middle 40% for title text overlay",
+        "text_zones": {
+          "primary": "center 40%"
+        }
+      }
+    },
+    {
+      "id": "02",
+      "layout": "lf",
+      "content": {
+        "title": "Left Focus Layout",
+        "bullets": [
+          "Content positioned on left",
+          "Visual emphasis on right",
+          "28vw max width",
+          "Vertically centered"
+        ],
+        "links": [
+          {
+            "text": "CSS Grid Guide",
+            "url": "https://css-tricks.com/snippets/css/complete-guide-grid/",
+            "description": "Complete guide to CSS Grid layout"
+          },
+          {
+            "text": "Flexbox Guide",
+            "url": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+          }
+        ]
+      },
+      "background": {
+        "filename": "SLIDE-02-LeftFocus.png",
+        "concept": "LeftFocus",
+        "prompt": "Geometric pattern with clear dark zone on left third (0-640px) for text, visual elements on right side",
+        "text_zones": {
+          "primary": "left third (0-640px)"
+        }
+      }
+    },
+    {
+      "id": "03",
+      "layout": "rf", 
+      "content": {
+        "title": "Right Focus Layout",
+        "bullets": [
+          "Content positioned on right",
+          "Visual emphasis on left", 
+          "28vw max width",
+          "Vertically centered"
+        ],
+        "links": [
+          {
+            "text": "Responsive Design",
+            "url": "https://web.dev/responsive-web-design-basics/",
+            "description": "Google's guide to responsive design"
+          },
+          {
+            "text": "Layout Best Practices",
+            "url": "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout",
+            "description": "MDN Web Docs on CSS layout"
+          },
+          {
+            "text": "Visual Hierarchy",
+            "url": "https://www.nngroup.com/articles/visual-hierarchy-ux-definition/",
+            "description": "Nielsen Norman Group article"
+          }
+        ]
+      },
+      "background": {
+        "filename": "SLIDE-03-RightFocus.png",
+        "concept": "RightFocus",
+        "prompt": "Geometric pattern with clear dark zone on right third (1280-1920px) for text, visual elements on left side",
+        "text_zones": {
+          "primary": "right third (1280-1920px)"
+        }
+      }
+    },
+    {
+      "id": "04",
+      "layout": "tb",
+      "content": {
+        "title": "Top-Bottom Layout",
+        "bullets": [
+          "Content at bottom center",
+          "Visual banner on top",
+          "50vw max width",
+          "Center aligned"
+        ],
+        "links": [
+          {
+            "text": "Reveal.js Documentation",
+            "url": "https://revealjs.com/",
+            "description": "Official Reveal.js presentation framework docs"
+          },
+          {
+            "text": "Layout Examples",
+            "url": "https://github.com/hakimel/reveal.js/wiki/Example-Presentations",
+            "description": "Collection of example presentations"
+          },
+          {
+            "text": "Advanced Features",
+            "url": "https://revealjs.com/plugins/",
+            "description": "Explore Reveal.js plugins and extensions"
+          }
+        ]
+      },
+      "background": {
+        "filename": "SLIDE-04-TopBottom.png",
+        "concept": "TopBottom", 
+        "prompt": "Geometric pattern with clear dark zone in bottom third (720-1080px) for text, visual elements on top",
+        "text_zones": {
+          "primary": "bottom third (720-1080px)"
+        }
+      }
+    },
+    {
+      "id": "05",
+      "layout": "tl",
+      "content": {
+        "title": "Top-Left Corner",
+        "bullets": [
+          "Corner positioning",
+          "Great for annotations",
+          "28vw max width"
+        ],
+        "links": [
+          {
+            "text": "Positioning Guide",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/position",
+            "description": "CSS position property"
+          },
+          {
+            "text": "Design Patterns",
+            "url": "https://refactoringui.com/",
+            "description": "UI design techniques"
+          }
+        ]
+      },
+      "background": {
+        "filename": "SLIDE-05-TopLeft.png",
+        "concept": "TopLeft",
+        "prompt": "Geometric pattern with clear dark zone in top-left corner (0-640px width, 0-360px height) for text",
+        "text_zones": {
+          "primary": "top-left corner"
+        }
+      }
+    },
+    {
+      "id": "06",
+      "layout": "tr",
+      "content": {
+        "title": "Top-Right Corner",
+        "bullets": [
+          "Corner positioning",
+          "Secondary information",
+          "28vw max width"
+        ],
+        "links": [
+          {
+            "text": "Animation Guide",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations",
+            "description": "CSS animations tutorial"
+          }
+        ]
+      },
+      "background": {
+        "filename": "SLIDE-06-TopRight.png",
+        "concept": "TopRight",
+        "prompt": "Geometric pattern with clear dark zone in top-right corner (1280-1920px width, 0-360px height) for text",
+        "text_zones": {
+          "primary": "top-right corner"
+        }
+      }
+    },
+    {
+      "id": "07",
+      "layout": "bl",
+      "content": {
+        "title": "Bottom-Left Corner",
+        "bullets": [
+          "Great for citations",
+          "Footnote information",
+          "28vw max width"
+        ],
+        "links": [
+          {
+            "text": "Accessibility Guide",
+            "url": "https://www.w3.org/WAI/WCAG21/quickref/",
+            "description": "WCAG 2.1 Quick Reference"
+          },
+          {
+            "text": "Color Contrast",
+            "url": "https://webaim.org/resources/contrastchecker/",
+            "description": "Check color accessibility"
+          },
+          {
+            "text": "Screen Readers",
+            "url": "https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility",
+            "description": "Introduction to accessibility"
+          },
+          {
+            "text": "ARIA Labels",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA",
+            "description": "Using ARIA for better accessibility"
+          }
+        ]
+      },
+      "background": {
+        "filename": "SLIDE-07-BottomLeft.png",
+        "concept": "BottomLeft",
+        "prompt": "Geometric pattern with clear dark zone in bottom-left corner (0-640px width, 720-1080px height) for text",
+        "text_zones": {
+          "primary": "bottom-left corner"
+        }
+      }
+    },
+    {
+      "id": "08",
+      "layout": "br",
+      "content": {
+        "title": "Bottom-Right Corner",
+        "bullets": [
+          "Perfect for metadata",
+          "Page numbers, dates",
+          "28vw max width"
+        ],
+        "links": [
+          {
+            "text": "DALL-E 3 Guide",
+            "url": "https://openai.com/dall-e-3",
+            "description": "Learn about AI image generation"
+          }
+        ]
+      },
+      "background": {
+        "filename": "SLIDE-08-BottomRight.png",
+        "concept": "BottomRight",
+        "prompt": "Geometric pattern with clear dark zone in bottom-right corner (1280-1920px width, 720-1080px height) for text",
+        "text_zones": {
+          "primary": "bottom-right corner"
+        }
+      }
+    }
+  ],
+
+  "icons": [],
+
+  "runtime_config": {
+    "reveal_js": {
+      "transition": "slide",
+      "transition_speed": "default",
+      "background_transition": "fade",
+      "controls": true,
+      "progress": true,
+      "keyboard": true,
+      "touch": true,
+      "hash": true
+    },
+    "responsive_breakpoints": {
+      "tablet": "1200px",
+      "mobile": "768px"
+    },
+    "content_sizing": {
+      "max_height": "70vh",
+      "border_radius": "15px",
+      "backdrop_blur": "12px"
+    }
+  }
+}

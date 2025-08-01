@@ -1,0 +1,435 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/presentation-schema.json",
+  "title": "Unified Presentation Schema",
+  "description": "Schema slide presentation generation system",
+  "type": "object",
+  "required": ["meta", "visual_identity", "layout_system", "asset_config", "slides", "runtime_config"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "description": "Presentation metadata",
+      "required": ["title", "short_name", "version", "created", "theme"],
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Display title of the presentation"
+        },
+        "short_name": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "description": "Short directory name (lowercase, alphanumeric with hyphens)"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "description": "Semantic version number"
+        },
+        "created": {
+          "type": "string",
+          "format": "date",
+          "description": "Creation date in YYYY-MM-DD format"
+        },
+        "theme": {
+          "type": "string",
+          "description": "Theme identifier"
+        },
+        "description": {
+          "type": "string",
+          "description": "Brief description of the presentation"
+        }
+      }
+    },
+    "visual_identity": {
+      "type": "object",
+      "description": "Brand and styling configuration",
+      "required": ["colors", "typography", "style_prompt", "atmosphere"],
+      "properties": {
+        "colors": {
+          "type": "object",
+          "required": ["primary", "secondary", "accent", "text_primary", "text_secondary", "overlay_bg", "border"],
+          "properties": {
+            "primary": {
+              "type": "string",
+              "pattern": "^#[0-9A-Fa-f]{6}$",
+              "description": "Primary color (hex)"
+            },
+            "secondary": {
+              "type": "string",
+              "pattern": "^#[0-9A-Fa-f]{6}$",
+              "description": "Secondary color (hex)"
+            },
+            "accent": {
+              "type": "string",
+              "pattern": "^#[0-9A-Fa-f]{6}$",
+              "description": "Accent color (hex)"
+            },
+            "text_primary": {
+              "type": "string",
+              "description": "Primary text color (hex or rgba)"
+            },
+            "text_secondary": {
+              "type": "string",
+              "description": "Secondary text color (hex or rgba)"
+            },
+            "overlay_bg": {
+              "type": "string",
+              "description": "Overlay background color (rgba)"
+            },
+            "border": {
+              "type": "string",
+              "description": "Border color (rgba)"
+            }
+          }
+        },
+        "typography": {
+          "type": "object",
+          "required": ["font_family", "title_size", "subtitle_size", "body_size", "small_size"],
+          "properties": {
+            "font_family": {
+              "type": "string",
+              "description": "CSS font family stack"
+            },
+            "title_size": {
+              "type": "string",
+              "description": "Title font size (CSS units)"
+            },
+            "subtitle_size": {
+              "type": "string",
+              "description": "Subtitle font size (CSS units)"
+            },
+            "body_size": {
+              "type": "string",
+              "description": "Body text font size (CSS units)"
+            },
+            "small_size": {
+              "type": "string",
+              "description": "Small text font size (CSS units)"
+            }
+          }
+        },
+        "style_prompt": {
+          "type": "string",
+          "description": "Base DALL-E style prompt for consistent visual generation"
+        },
+        "atmosphere": {
+          "type": "string",
+          "description": "Visual atmosphere and mood description"
+        }
+      }
+    },
+    "layout_system": {
+      "type": "object",
+      "description": "Layout definitions for slide positioning",
+      "required": ["layouts"],
+      "properties": {
+        "layouts": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-z-]+$": {
+              "type": "object",
+              "required": ["description", "text_position", "text_zone", "max_width"],
+              "properties": {
+                "description": {
+                  "type": "string",
+                  "description": "Layout description"
+                },
+                "text_position": {
+                  "type": "string",
+                  "description": "Text positioning identifier"
+                },
+                "text_zone": {
+                  "type": "string",
+                  "description": "Text area specification with pixel ranges"
+                },
+                "max_width": {
+                  "type": "string",
+                  "description": "Maximum content width (CSS units)"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "asset_config": {
+      "type": "object",
+      "description": "Asset generation configuration",
+      "required": ["dimensions", "naming_convention", "dalle_model"],
+      "properties": {
+        "dimensions": {
+          "type": "object",
+          "required": ["background", "icons"],
+          "properties": {
+            "background": {
+              "type": "object",
+              "required": ["generation_size", "final_size"],
+              "properties": {
+                "generation_size": {
+                  "type": "string",
+                  "pattern": "^\\d+x\\d+$",
+                  "description": "DALL-E generation size (e.g., '1792x1024')"
+                },
+                "final_size": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "description": "Final image dimensions [width, height]"
+                }
+              }
+            },
+            "icons": {
+              "type": "object",
+              "required": ["generation_size", "final_size"],
+              "properties": {
+                "generation_size": {
+                  "type": "string",
+                  "pattern": "^\\d+x\\d+$",
+                  "description": "DALL-E generation size for icons"
+                },
+                "final_size": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "description": "Final icon dimensions [width, height]"
+                }
+              }
+            }
+          }
+        },
+        "naming_convention": {
+          "type": "string",
+          "description": "File naming pattern template"
+        },
+        "dalle_model": {
+          "type": "string",
+          "enum": ["dall-e-3", "dall-e-2"],
+          "description": "DALL-E model version"
+        }
+      }
+    },
+    "slides": {
+      "type": "array",
+      "description": "Array of slide definitions",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "layout", "content", "background"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^\\d{2}$",
+            "description": "Two-digit slide identifier (zero-padded)"
+          },
+          "layout": {
+            "type": "string",
+            "description": "Layout type from layout_system"
+          },
+          "content": {
+            "type": "object",
+            "description": "Slide content",
+            "properties": {
+              "title": {
+                "type": "string",
+                "description": "Slide title"
+              },
+              "subtitle": {
+                "type": "string",
+                "description": "Slide subtitle"
+              },
+              "bullets": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Bullet point list"
+              },
+              "text": {
+                "type": "string",
+                "description": "Paragraph text"
+              },
+              "text_class": {
+                "type": "string",
+                "enum": ["small"],
+                "description": "CSS class for text styling"
+              },
+              "icons": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Array of icon filenames"
+              },
+              "links": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["text", "url"],
+                  "properties": {
+                    "text": {
+                      "type": "string",
+                      "description": "Link display text"
+                    },
+                    "url": {
+                      "type": "string",
+                      "format": "uri",
+                      "description": "Link URL"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "Optional link description"
+                    }
+                  }
+                },
+                "description": "Array of clickable links that animate in after main content"
+              }
+            }
+          },
+          "background": {
+            "type": "object",
+            "required": ["filename", "concept", "prompt", "text_zones"],
+            "properties": {
+              "filename": {
+                "type": "string",
+                "pattern": "^SLIDE-\\d{2}-[A-Za-z]+\\.png$",
+                "description": "Background image filename"
+              },
+              "concept": {
+                "type": "string",
+                "description": "Visual concept name"
+              },
+              "prompt": {
+                "type": "string",
+                "description": "DALL-E generation prompt with text zone specification"
+              },
+              "text_zones": {
+                "type": "object",
+                "required": ["primary"],
+                "properties": {
+                  "primary": {
+                    "type": "string",
+                    "description": "Primary text zone specification with pixel ranges"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "icons": {
+      "type": "array",
+      "description": "Icon definitions for generation",
+      "items": {
+        "type": "object",
+        "required": ["filename", "prompt", "transparent"],
+        "properties": {
+          "filename": {
+            "type": "string",
+            "pattern": "^IC-[A-Za-z]+\\.png$",
+            "description": "Icon filename"
+          },
+          "prompt": {
+            "type": "string",
+            "description": "DALL-E generation prompt for icon"
+          },
+          "transparent": {
+            "type": "boolean",
+            "description": "Whether icon should have transparent background"
+          }
+        }
+      }
+    },
+    "runtime_config": {
+      "type": "object",
+      "description": "Presentation runtime configuration",
+      "required": ["reveal_js", "responsive_breakpoints", "content_sizing"],
+      "properties": {
+        "reveal_js": {
+          "type": "object",
+          "description": "Reveal.js configuration",
+          "required": ["transition", "transition_speed", "background_transition", "controls", "progress", "keyboard", "touch", "hash"],
+          "properties": {
+            "transition": {
+              "type": "string",
+              "enum": ["none", "fade", "slide", "convex", "concave", "zoom"],
+              "description": "Slide transition type"
+            },
+            "transition_speed": {
+              "type": "string",
+              "enum": ["default", "fast", "slow"],
+              "description": "Transition speed"
+            },
+            "background_transition": {
+              "type": "string",
+              "enum": ["none", "fade", "slide", "convex", "concave", "zoom"],
+              "description": "Background transition type"
+            },
+            "controls": {
+              "type": "boolean",
+              "description": "Show navigation controls"
+            },
+            "progress": {
+              "type": "boolean",
+              "description": "Show progress bar"
+            },
+            "keyboard": {
+              "type": "boolean",
+              "description": "Enable keyboard navigation"
+            },
+            "touch": {
+              "type": "boolean",
+              "description": "Enable touch navigation"
+            },
+            "hash": {
+              "type": "boolean",
+              "description": "Enable URL hashing"
+            }
+          }
+        },
+        "responsive_breakpoints": {
+          "type": "object",
+          "required": ["tablet", "mobile"],
+          "properties": {
+            "tablet": {
+              "type": "string",
+              "pattern": "^\\d+px$",
+              "description": "Tablet breakpoint"
+            },
+            "mobile": {
+              "type": "string",
+              "pattern": "^\\d+px$",
+              "description": "Mobile breakpoint"
+            }
+          }
+        },
+        "content_sizing": {
+          "type": "object",
+          "required": ["max_height", "border_radius", "backdrop_blur"],
+          "properties": {
+            "max_height": {
+              "type": "string",
+              "description": "Maximum content height (CSS units)"
+            },
+            "border_radius": {
+              "type": "string",
+              "description": "Content box border radius (CSS units)"
+            },
+            "backdrop_blur": {
+              "type": "string",
+              "description": "Backdrop blur amount (CSS units)"
+            }
+          }
+        }
+      }
+    }
+  }
+}

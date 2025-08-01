@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title id="presentation-title">Loading...</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+	<style id="dynamic-styles">
+		/* Styles will be generated from schema */
+	</style>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides" id="slides-container">
+			<section>
+				<div class="loading">
+					<h1>Loading Presentation...</h1>
+					<p>Generating from schema...</p>
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+	<script>
+		class UnifiedPresentationGenerator {
+			constructor() {
+				this.schema = null;
+				this.assetDir = null;
+			}
+
+			async loadSchema(schemaPath = 'presentation_schema.json') {
+				try {
+					const response = await fetch(schemaPath);
+					this.schema = await response.json();
+					this.assetDir = "assets_generated";
+					return this.schema;
+				} catch (error) {
+					console.error('Error loading schema:', error);
+					throw error;
+				}
+			}
+
+			generateCSS() {
+				// Validate schema structure
+				if (!this.schema || !this.schema.visual_identity || !this.schema.layout_system || !this.schema.runtime_config) {
+					throw new Error('Schema not fully loaded or missing required sections');
+				}
+				
+				const { colors, typography } = this.schema.visual_identity;
+				const { responsive_breakpoints, content_sizing } = this.schema.runtime_config;
+				const layouts = this.schema.layout_system.layouts;
+				
+				return `
+				.reveal {
+					font-family: ${typography.font_family};
+				}
+
+				.reveal .slides section {
+					color: ${colors.text_primary};
+					text-align: left;
+					width: 100%;
+					height: 100%;
+					padding: 0;
+				}
+
+				.reveal .backgrounds {
+					background: none;
+				}
+
+				.reveal h1 {
+					color: ${colors.accent};
+					font-size: ${typography.title_size};
+					margin: 0 0 0.3em 0;
+					text-transform: none;
+					text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+					line-height: 1.2;
+				}
+
+				.reveal h2 {
+					color: ${colors.text_secondary};
+					font-size: ${typography.subtitle_size};
+					margin-bottom: 0.4em;
+					text-transform: none;
+					text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+				}
+
+				.reveal ul {
+					font-size: ${typography.body_size};
+					line-height: 1.5;
+					margin: 0;
+				}
+
+				.reveal li {
+					margin-bottom: 0.3em;
+				}
+
+				.reveal p {
+					font-size: ${typography.body_size};
+					line-height: 1.6;
+				}
+
+				.small-text {
+					font-size: ${typography.small_size};
+					opacity: 0.9;
+				}
+
+				.content-wrapper {
+					position: absolute;
+					z-index: 10;
+					background: ${colors.overlay_bg};
+					padding: 1.8vw;
+					border-radius: ${content_sizing.border_radius};
+					backdrop-filter: blur(${content_sizing.backdrop_blur});
+					border: 1px solid ${colors.border};
+					box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+					max-height: ${content_sizing.max_height};
+					overflow-y: auto;
+				}
+
+				/* Content element animations */
+				.content-wrapper h1,
+				.content-wrapper h2,
+				.content-wrapper ul,
+				.content-wrapper p,
+				.content-wrapper .icon-row {
+					opacity: 0;
+					transition: opacity 0.6s ease-out;
+				}
+
+				.reveal .slides section.present .content-wrapper h1 {
+					opacity: 1;
+					transition-delay: 0.7s;
+				}
+
+				.reveal .slides section.present .content-wrapper h2 {
+					opacity: 1;
+					transition-delay: 0.9s;
+				}
+
+				.reveal .slides section.present .content-wrapper ul,
+				.reveal .slides section.present .content-wrapper p {
+					opacity: 1;
+					transition-delay: 1.1s;
+				}
+
+				.reveal .slides section.present .content-wrapper .icon-row {
+					opacity: 1;
+					transition-delay: 1.3s;
+				}
+
+				/* Links button in corner */
+				.links-button {
+					position: absolute;
+					bottom: 1em;
+					right: 1em;
+					width: 40px;
+					height: 40px;
+					background: ${colors.accent};
+					border: none;
+					border-radius: 50%;
+					cursor: pointer;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					transition: all 0.3s ease;
+					opacity: 0;
+					z-index: 20;
+				}
+
+				.reveal .slides section.present .links-button {
+					opacity: 0.8;
+					transition-delay: 1.5s;
+				}
+
+				.links-button:hover {
+					opacity: 1;
+					transform: scale(1.1);
+				}
+
+				.links-button svg {
+					width: 20px;
+					height: 20px;
+					fill: ${colors.text_primary};
+				}
+
+				/* Toggle content visibility */
+				.content-main {
+					display: block;
+				}
+
+				.content-main.hide-content {
+					display: none;
+				}
+
+				.links-content {
+					display: none;
+				}
+
+				.links-content.show-links {
+					display: block;
+				}
+
+				/* Links container styling */
+				.links-container {
+					display: flex;
+					flex-direction: column;
+					gap: 0.8em;
+				}
+				
+				/* Ensure links are visible when shown */
+				.links-content .links-container {
+					opacity: 1;
+				}
+
+				/* Layout positioning from schema */
+				/* Title slide - centered */
+				.layout-title-slide .content-wrapper {
+					left: 50%;
+					top: 50%;
+					transform: translate(-50%, -50%);
+					width: ${layouts['title-slide']?.max_width || '60vw'};
+					max-width: none;
+					text-align: left;
+				}
+
+
+				.layout-title-slide h1 {
+					font-size: 4.2vw;
+					margin-bottom: 0.4em;
+				}
+
+				.layout-title-slide h2 {
+					font-size: 2.6vw;
+				}
+
+				/* LF layout - content left, visual right */
+				.layout-lf .content-wrapper {
+					left: 3vw;
+					top: 50%;
+					transform: translateY(-50%);
+					width: ${layouts.lf?.max_width || '28vw'};
+					max-width: none;
+				}
+
+				/* RF layout - content right, visual left */
+				.layout-rf .content-wrapper {
+					right: 3vw;
+					left: auto;
+					top: 50%;
+					transform: translateY(-50%);
+					width: ${layouts.rf?.max_width || '28vw'};
+					max-width: none;
+				}
+
+				/* TB layout - content bottom, visual top */
+				.layout-tb .content-wrapper {
+					left: 50%;
+					bottom: 6vh;
+					top: auto;
+					transform: translateX(-50%);
+					width: ${layouts.tb?.max_width || '50vw'};
+					max-width: none;
+					text-align: left;
+				}
+
+				/* TL layout - content top-left corner */
+				.layout-tl .content-wrapper {
+					left: 3vw;
+					top: 6vh;
+					right: auto;
+					bottom: auto;
+					width: ${layouts.tl?.max_width || '28vw'};
+					max-width: none;
+				}
+
+				/* TR layout - content top-right corner */
+				.layout-tr .content-wrapper {
+					right: 3vw;
+					top: 6vh;
+					left: auto;
+					bottom: auto;
+					width: ${layouts.tr?.max_width || '28vw'};
+					max-width: none;
+				}
+
+				/* BL layout - content bottom-left corner */
+				.layout-bl .content-wrapper {
+					left: 3vw;
+					bottom: 6vh;
+					right: auto;
+					top: auto;
+					width: ${layouts.bl?.max_width || '28vw'};
+					max-width: none;
+				}
+
+				/* BR layout - content bottom-right corner */
+				.layout-br .content-wrapper {
+					right: 3vw;
+					bottom: 6vh;
+					left: auto;
+					top: auto;
+					width: ${layouts.br?.max_width || '28vw'};
+					max-width: none;
+				}
+
+				/* FB layout - full-bleed visual, lower-third text centered */
+				.layout-fb .content-wrapper {
+					left: 50%;
+					bottom: 6vh;
+					top: auto;
+					transform: translateX(-50%);
+					width: ${layouts.fb?.max_width || '50vw'};
+					max-width: none;
+					text-align: center;
+				}
+
+				/* Fade-in animation for content wrapper */
+				.content-wrapper {
+					opacity: 0;
+					transition: opacity 0.8s ease-out;
+					transition-delay: 0.5s;
+				}
+
+				.reveal .slides section.present .content-wrapper {
+					opacity: 1;
+				}
+
+				.icon-row {
+					display: flex;
+					gap: 1.5em;
+					margin-top: 1.2em;
+					justify-content: flex-start;
+				}
+
+				.icon-row img {
+					width: 3vw;
+					height: 3vw;
+					min-width: 45px;
+					min-height: 45px;
+				}
+
+
+				.slide-link {
+					display: inline-block;
+					color: ${colors.accent};
+					text-decoration: none;
+					padding: 0.6em 1em;
+					border: 1px solid ${colors.accent};
+					border-radius: 6px;
+					background: rgba(0,0,0,0.3);
+					transition: all 0.3s ease;
+					font-size: ${typography.small_size};
+					backdrop-filter: blur(8px);
+				}
+
+				.slide-link:hover {
+					background: ${colors.accent};
+					color: ${colors.text_primary};
+					transform: translateY(-2px);
+					box-shadow: 0 4px 12px rgba(21,212,200,0.4);
+				}
+
+				.slide-link .link-description {
+					display: block;
+					font-size: 0.85em;
+					opacity: 0.8;
+					margin-top: 0.3em;
+				}
+
+				.loading {
+					text-align: center;
+					padding: 2em;
+				}
+
+				/* Debug info - remove in production */
+				.content-wrapper::before {
+					content: attr(data-layout);
+					position: absolute;
+					top: -25px;
+					left: 0;
+					font-size: 10px;
+					color: ${colors.accent};
+					opacity: 0.5;
+					text-transform: uppercase;
+					letter-spacing: 1px;
+				}
+
+				/* Responsive from schema */
+				@media (max-width: ${responsive_breakpoints.tablet}) {
+					.reveal h1 { font-size: 3.2vw; }
+					.reveal h2 { font-size: 2.2vw; }
+					.reveal ul, .reveal p { font-size: 1.6vw; }
+					.layout-title-slide h1 { font-size: 5vw; }
+					.layout-title-slide h2 { font-size: 3.2vw; }
+				}
+
+				@media (max-width: ${responsive_breakpoints.mobile}) {
+					/* Center all content on mobile */
+					.content-wrapper {
+						left: 50% !important;
+						right: auto !important;
+						transform: translate(-50%, -50%) !important;
+						max-width: 85vw !important;
+						top: 50% !important;
+						bottom: auto !important;
+					}
+					.reveal h1 { font-size: 6vw; }
+					.reveal h2 { font-size: 4vw; }
+					.reveal ul, .reveal p { font-size: 3.2vw; }
+				}
+				`;
+			}
+
+			generateSlides() {
+				const container = document.getElementById('slides-container');
+				container.innerHTML = ''; // Clear loading content
+				
+				this.schema.slides.forEach((slide, index) => {
+					const section = document.createElement('section');
+					const layoutClass = `layout-${slide.layout}`;
+					section.className = `slide-${slide.id} ${layoutClass}`;
+					
+					// Set background from schema
+					const bgPath = `${this.assetDir}/${slide.background.filename}`;
+					section.setAttribute('data-background-image', bgPath);
+					section.setAttribute('data-background-size', 'cover');
+					section.setAttribute('data-background-position', 'center');
+					
+					// Generate content from schema
+					let html = `<div class="content-wrapper" data-layout="${slide.layout}">`;
+					
+					// Always show title and subtitle
+					if (slide.content.title) {
+						html += `<h1>${slide.content.title}</h1>`;
+					}
+					
+					if (slide.content.subtitle) {
+						html += `<h2>${slide.content.subtitle}</h2>`;
+					}
+					
+					// Main content (bullets, text, icons) - can be hidden
+					html += '<div class="content-main">';
+					
+					if (slide.content.bullets) {
+						html += '<ul>';
+						slide.content.bullets.forEach(bullet => {
+							html += `<li>${bullet}</li>`;
+						});
+						html += '</ul>';
+					}
+					
+					if (slide.content.text) {
+						const textClass = slide.content.text_class === 'small' ? 'small-text' : '';
+						html += `<p class="${textClass}">${slide.content.text}</p>`;
+					}
+					
+					if (slide.content.icons) {
+						html += '<div class="icon-row">';
+						slide.content.icons.forEach(icon => {
+							html += `<img src="${this.assetDir}/${icon}" alt="">`;
+						});
+						html += '</div>';
+					}
+					
+					html += '</div>'; // content-main
+					
+					// Links content (hidden by default)
+					if (slide.content.links && slide.content.links.length > 0) {
+						html += '<div class="links-content">';
+						html += '<div class="links-container">';
+						slide.content.links.forEach(link => {
+							html += `<a href="${link.url}" class="slide-link" target="_blank" rel="noopener">`;
+							html += link.text;
+							if (link.description) {
+								html += `<span class="link-description">${link.description}</span>`;
+							}
+							html += '</a>';
+						});
+						html += '</div>';
+						html += '</div>';
+						
+						// Add links button with SVG icon
+						html += `<button class="links-button" title="View links">
+							<svg viewBox="0 0 24 24">
+								<path d="M13.06 8.11l1.415 1.415a7 7 0 010 9.9l-.354.353a7 7 0 01-9.9-9.9l1.415 1.415a5 5 0 107.071 7.071l.354-.354a5 5 0 000-7.07l-1.415-1.415 1.415-1.415zm6.718 6.01l-1.414-1.414a5 5 0 10-7.071-7.071l-.354.354a5 5 0 000 7.07l1.415 1.415-1.415 1.415a7 7 0 010-9.9l.354-.353a7 7 0 019.9 9.9l-1.415-1.415z"/>
+							</svg>
+						</button>`;
+					}
+					
+					html += '</div>';
+					section.innerHTML = html;
+					container.appendChild(section);
+				});
+			}
+
+			setupLinkNavigation() {
+				// Add click handlers to all link buttons
+				document.querySelectorAll('.links-button').forEach(button => {
+					button.addEventListener('click', (e) => {
+						e.stopPropagation(); // Prevent slide navigation
+						
+						const contentWrapper = button.closest('.content-wrapper');
+						const contentMain = contentWrapper.querySelector('.content-main');
+						const linksContent = contentWrapper.querySelector('.links-content');
+						
+						// Toggle between content and links
+						if (contentMain.classList.contains('hide-content')) {
+							// Show content, hide links
+							contentMain.classList.remove('hide-content');
+							linksContent.classList.remove('show-links');
+							button.innerHTML = `
+								<svg viewBox="0 0 24 24">
+									<path d="M13.06 8.11l1.415 1.415a7 7 0 010 9.9l-.354.353a7 7 0 01-9.9-9.9l1.415 1.415a5 5 0 107.071 7.071l.354-.354a5 5 0 000-7.07l-1.415-1.415 1.415-1.415zm6.718 6.01l-1.414-1.414a5 5 0 10-7.071-7.071l-.354.354a5 5 0 000 7.07l1.415 1.415-1.415 1.415a7 7 0 010-9.9l.354-.353a7 7 0 019.9 9.9l-1.415-1.415z"/>
+								</svg>`;
+							button.title = "View links";
+						} else {
+							// Hide content, show links
+							contentMain.classList.add('hide-content');
+							linksContent.classList.add('show-links');
+							button.innerHTML = `
+								<svg viewBox="0 0 24 24">
+									<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+								</svg>`;
+							button.title = "Back to content";
+						}
+					});
+				});
+
+				// Reset states on slide change
+				Reveal.on('slidechanged', (event) => {
+					// Reset all toggles
+					document.querySelectorAll('.content-main').forEach(content => {
+						content.classList.remove('hide-content');
+					});
+					document.querySelectorAll('.links-content').forEach(links => {
+						links.classList.remove('show-links');
+					});
+					// Reset button icons
+					document.querySelectorAll('.links-button').forEach(button => {
+						button.innerHTML = `
+							<svg viewBox="0 0 24 24">
+								<path d="M13.06 8.11l1.415 1.415a7 7 0 010 9.9l-.354.353a7 7 0 01-9.9-9.9l1.415 1.415a5 5 0 107.071 7.071l.354-.354a5 5 0 000-7.07l-1.415-1.415 1.415-1.415zm6.718 6.01l-1.414-1.414a5 5 0 10-7.071-7.071l-.354.354a5 5 0 000 7.07l1.415 1.415-1.415 1.415a7 7 0 010-9.9l.354-.353a7 7 0 019.9 9.9l-1.415-1.415z"/>
+							</svg>`;
+						button.title = "View links";
+					});
+				});
+
+				console.log('🔗 Link navigation setup complete');
+			}
+
+			async initialize() {
+				try {
+					console.log('🎭 Loading unified presentation...');
+					
+					// Load schema
+					await this.loadSchema();
+					console.log('✅ Schema loaded');
+					
+					// Update page title
+					document.getElementById('presentation-title').textContent = this.schema.meta.title;
+					
+					// Generate CSS from schema
+					const css = this.generateCSS();
+					document.getElementById('dynamic-styles').textContent = css;
+					console.log('🎨 Styles generated from schema');
+					
+					// Generate slides from schema  
+					this.generateSlides();
+					console.log('📄 Slides generated from schema');
+					
+					// Initialize Reveal.js with config from schema
+					const revealConfig = this.schema.runtime_config.reveal_js;
+					Reveal.initialize(revealConfig);
+					console.log('🚀 Presentation initialized');
+
+					// Setup custom navigation for links
+					this.setupLinkNavigation();
+					
+				} catch (error) {
+					console.error('❌ Initialization failed:', error);
+					document.getElementById('slides-container').innerHTML = `
+						<section>
+							<div style="text-align: center; padding: 2em; color: #ff6b6b;">
+								<h1>Error Loading Presentation</h1>
+								<p>${error.message}</p>
+								<p>Please check the console for details.</p>
+							</div>
+						</section>
+					`;
+				}
+			}
+		}
+
+		// Initialize when page loads
+		document.addEventListener('DOMContentLoaded', () => {
+			const generator = new UnifiedPresentationGenerator();
+			generator.initialize();
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,432 @@
+{
+  "meta": {
+    "title": "September 30th: Our Moment to Shine",
+    "short_name": "team-transformation-sept30",
+    "version": "1.0.0",
+    "created": "2025-08-01",
+    "theme": "team_velocity_transformation",
+    "description": "Energizing presentation about becoming an AI-powered unified development team"
+  },
+
+  "visual_identity": {
+    "colors": {
+      "primary": "#FF6B35",
+      "secondary": "#0077FF",
+      "accent": "#FFC947",
+      "text_primary": "#FFFFFF",
+      "text_secondary": "rgba(255,255,255,0.95)",
+      "overlay_bg": "rgba(0,0,0,0.75)",
+      "border": "rgba(255,203,71,0.4)"
+    },
+    "typography": {
+      "font_family": "'Inter', 'Segoe UI', 'Roboto', sans-serif",
+      "title_size": "3vw",
+      "subtitle_size": "2vw",
+      "body_size": "1.4vw",
+      "small_size": "1.2vw"
+    },
+    "style_prompt": "Bright energetic workspace; vibrant orange #FF6B35 + electric blue #0077FF with warm yellow #FFC947 accents; natural lighting with motion blur suggesting speed; clean modern tech environment; high contrast dynamic compositions; 8K sharp render; no watermarks.",
+    "atmosphere": "High-energy collaborative workspace with bright natural light and technological momentum"
+  },
+
+  "layout_system": {
+    "layouts": {
+      "title-slide": {
+        "description": "Centered title & subtitle opening slide",
+        "text_position": "center_center",
+        "text_zone": "Middle 40% of canvas kept darker",
+        "max_width": "65vw"
+      },
+      "lf": {
+        "description": "Visual right, text left",
+        "text_position": "left_center",
+        "text_zone": "0-640 px",
+        "max_width": "30vw"
+      },
+      "rf": {
+        "description": "Visual left, text right",
+        "text_position": "right_center",
+        "text_zone": "1280-1920 px",
+        "max_width": "30vw"
+      },
+      "tb": {
+        "description": "Banner / visual top, text bottom",
+        "text_position": "bottom_center",
+        "text_zone": "720-1080 px",
+        "max_width": "55vw"
+      },
+      "tl": {
+        "description": "Visual bottom/right, text top-left",
+        "text_position": "top_left",
+        "text_zone": "0-640 px top",
+        "max_width": "30vw"
+      },
+      "tr": {
+        "description": "Visual bottom/left, text top-right",
+        "text_position": "top_right",
+        "text_zone": "1280-1920 px top",
+        "max_width": "30vw"
+      },
+      "bl": {
+        "description": "Visual top/right, text bottom-left",
+        "text_position": "bottom_left",
+        "text_zone": "0-640 px bottom",
+        "max_width": "30vw"
+      },
+      "br": {
+        "description": "Visual top/left, text bottom-right",
+        "text_position": "bottom_right",
+        "text_zone": "1280-1920 px bottom",
+        "max_width": "30vw"
+      }
+    }
+  },
+
+  "asset_config": {
+    "dimensions": {
+      "background": { 
+        "generation_size": "1792x1024", 
+        "final_size": [1920, 1080] 
+      },
+      "icons": { 
+        "generation_size": "1024x1024", 
+        "final_size": [350, 350] 
+      }
+    },
+    "naming_convention": "SLIDE-{slide_number:02d}-{concept_name}.png",
+    "dalle_model": "dall-e-3"
+  },
+
+  "slides": [
+    {
+      "id": "01",
+      "layout": "title-slide",
+      "content": {
+        "title": "September 30th",
+        "subtitle": "Our Moment to Shine"
+      },
+      "presenterNotes": "Open with energy and excitement - this is our rallying cry!",
+      "background": {
+        "filename": "SLIDE-01-Sunrise.png",
+        "concept": "Sunrise",
+        "prompt": "Team of diverse developers silhouettes at sunrise on mountain peak, arms raised in victory pose; golden orange sunburst with speed lines radiating outward; middle 40% kept darker for title overlay; sense of triumph and new beginnings.",
+        "text_zones": { 
+          "primary": "center 40%" 
+        }
+      }
+    },
+    {
+      "id": "02",
+      "layout": "lf",
+      "content": {
+        "title": "The Challenge is Real",
+        "bullets": [
+          "September 30th deadline",
+          "It feels overwhelming",
+          "That's totally understandable",
+          "But this is our moment to level up!"
+        ]
+      },
+      "presenterNotes": "Acknowledge the pressure, then pivot to opportunity",
+      "background": {
+        "filename": "SLIDE-02-Mountain.png",
+        "concept": "Mountain",
+        "prompt": "Team of climbers ascending bright sunlit mountain face with ropes connecting them; vibrant orange rock face with blue sky; motion blur on climbing gear; left third (0-640px) kept darker for text overlay.",
+        "text_zones": { 
+          "primary": "left third (0-640px)" 
+        }
+      }
+    },
+    {
+      "id": "03",
+      "layout": "rf",
+      "content": {
+        "title": "ONE Unified Team",
+        "bullets": [
+          "No more front-end vs back-end silos",
+          "Scrum ceremonies together",
+          "Own everything together",
+          "Eliminate blockers between teams"
+        ]
+      },
+      "presenterNotes": "Emphasize unity - we're stronger together",
+      "background": {
+        "filename": "SLIDE-03-Unity.png",
+        "concept": "Unity",
+        "prompt": "Interlocking hands from diverse team members forming a star pattern from above; bright workspace with orange and blue light streams connecting between hands; right third (1280-1920px) kept darker for text overlay.",
+        "text_zones": { 
+          "primary": "right third (1280-1920px)" 
+        }
+      }
+    },
+    {
+      "id": "04",
+      "layout": "tb",
+      "content": {
+        "title": "Unleashing Developers",
+        "bullets": [
+          "No more mandatory PRs!",
+          "You have CodeRabbit",
+          "You have skills",
+          "We trust you to own your code",
+          "Ship directly to deployment"
+        ]
+      },
+      "presenterNotes": "This is about trust and empowerment",
+      "background": {
+        "filename": "SLIDE-04-Freedom.png",
+        "concept": "Freedom",
+        "prompt": "Developer breaking free from chains, transforming into rocket ship trajectory; bright orange flames with blue speed trails; dynamic upward motion; bottom third (720-1080px) kept darker for text overlay.",
+        "text_zones": { 
+          "primary": "bottom third (720-1080px)" 
+        }
+      }
+    },
+    {
+      "id": "05",
+      "layout": "lf",
+      "content": {
+        "title": "Direct Communication Wins",
+        "bullets": [
+          "Got a question? Slack directly",
+          "No more message chains",
+          "No waiting for meetings",
+          "Jeff & I unblock you FAST",
+          "Keep your flow state"
+        ]
+      },
+      "presenterNotes": "Speed of communication = speed of delivery",
+      "background": {
+        "filename": "SLIDE-05-Lightning.png",
+        "concept": "Lightning",
+        "prompt": "Lightning-fast message streams connecting team members in bright modern office; electric blue communication paths with orange nodes; sense of instant connectivity; left third (0-640px) kept darker for text overlay.",
+        "text_zones": { 
+          "primary": "left third (0-640px)" 
+        }
+      }
+    },
+    {
+      "id": "06",
+      "layout": "rf",
+      "content": {
+        "title": "Design-Dev Unity",
+        "bullets": [
+          "Marite joins our scrums",
+          "Product knowledge directly integrated",
+          "Design QA happens instantly",
+          "No more communication gaps"
+        ]
+      },
+      "presenterNotes": "Bringing design into the dev flow",
+      "background": {
+        "filename": "SLIDE-06-Bridge.png",
+        "concept": "Bridge",
+        "prompt": "Glowing golden bridge connecting design tools to code editor screens; warm collaborative workspace with designers and developers working together; right third (1280-1920px) kept darker for text overlay.",
+        "text_zones": { 
+          "primary": "right third (1280-1920px)" 
+        }
+      }
+    },
+    {
+      "id": "07",
+      "layout": "tb",
+      "content": {
+        "title": "Daily AI Skill Building",
+        "bullets": [
+          "Everyone invests time daily in AI",
+          "Yes, task #1 will be slower",
+          "By task #100 you're 3-5x faster",
+          "Trust the process",
+          "I've seen developers doing this NOW"
+        ]
+      },
+      "presenterNotes": "Investment today = velocity tomorrow",
+      "background": {
+        "filename": "SLIDE-07-Growth.png",
+        "concept": "Growth",
+        "prompt": "Exponential growth curve made of glowing code particles; starting low then shooting upward dramatically; orange base transitioning to bright yellow peak; bottom third (720-1080px) kept darker for text overlay.",
+        "text_zones": { 
+          "primary": "bottom third (720-1080px)" 
+        }
+      }
+    },
+    {
+      "id": "08",
+      "layout": "lf",
+      "content": {
+        "title": "CodeRabbit Evolution",
+        "bullets": [
+          "Weekly improvements to our AI reviewer",
+          "Who wants to own this?",
+          "Become our CodeRabbit expert",
+          "Help the team level up",
+          "Raise your hand! 🙋"
+        ]
+      },
+      "presenterNotes": "Looking for a champion - opportunity for leadership",
+      "background": {
+        "filename": "SLIDE-08-Rabbit.png",
+        "concept": "Rabbit",
+        "prompt": "Futuristic robotic rabbit made of flowing code reviewing pull requests on multiple screens; electric blue circuits with orange energy cores; left third (0-640px) kept darker for text overlay.",
+        "text_zones": { 
+          "primary": "left third (0-640px)" 
+        }
+      }
+    },
+    {
+      "id": "09",
+      "layout": "rf",
+      "content": {
+        "title": "Supercharged Dev Cycle",
+        "bullets": [
+          "Break epics into smaller stories",
+          "Most stories: 1-2 days",
+          "Some stories: 1-2 hours!",
+          "No review bottlenecks",
+          "Cycle time plummets"
+        ]
+      },
+      "presenterNotes": "Smaller chunks + AI = incredible velocity",
+      "background": {
+        "filename": "SLIDE-09-Velocity.png",
+        "concept": "Velocity",
+        "prompt": "Multiple rocket ships launching in sequence with orange flame trails; each progressively faster than the last; bright blue sky with motion blur effects; right third (1280-1920px) kept darker for text overlay.",
+        "text_zones": { 
+          "primary": "right third (1280-1920px)" 
+        }
+      }
+    },
+    {
+      "id": "10",
+      "layout": "tb",
+      "content": {
+        "title": "Daily Commits, Daily Wins",
+        "bullets": [
+          "Everyone commits code EVERY day",
+          "Complete story? Push immediately",
+          "Real git history - no squashing",
+          "Small frequent commits = velocity",
+          "Proven developer productivity pattern"
+        ]
+      },
+      "presenterNotes": "Daily momentum builds unstoppable velocity",
+      "background": {
+        "filename": "SLIDE-10-Momentum.png",
+        "concept": "Momentum",
+        "prompt": "Calendar grid transforming into speed lines; each day marked with bright commit dots creating acceleration pattern; orange to yellow gradient suggesting building momentum; bottom third (720-1080px) kept darker for text overlay.",
+        "text_zones": { 
+          "primary": "bottom third (720-1080px)" 
+        }
+      }
+    },
+    {
+      "id": "11",
+      "layout": "lf",
+      "content": {
+        "title": "QA Gets Fed Daily",
+        "bullets": [
+          "4-6 developers shipping daily",
+          "QA receives constant stream",
+          "Approve stories immediately",
+          "No more big batch waiting",
+          "Everything flows smoothly"
+        ]
+      },
+      "presenterNotes": "Continuous flow instead of batch processing",
+      "background": {
+        "filename": "SLIDE-11-Flow.png",
+        "concept": "Flow",
+        "prompt": "Smooth flowing river of code elements streaming from developers to QA station; continuous orange light stream with blue ripples; sense of constant movement; left third (0-640px) kept darker for text overlay.",
+        "text_zones": { 
+          "primary": "left third (0-640px)" 
+        }
+      }
+    },
+    {
+      "id": "12",
+      "layout": "rf",
+      "content": {
+        "title": "The Machine That Works",
+        "bullets": [
+          "Smaller stories",
+          "+ Daily commits",
+          "+ AI Superpowers",
+          "+ Immediate delivery",
+          "+ No PR bottlenecks",
+          "= UNSTOPPABLE TEAM"
+        ]
+      },
+      "presenterNotes": "All pieces working together create magic",
+      "background": {
+        "filename": "SLIDE-12-Machine.png",
+        "concept": "Machine",
+        "prompt": "Elegant clockwork machine with glowing gears perfectly synchronized; orange energy cores with blue lightning connections; all parts moving in harmony; right third (1280-1920px) kept darker for text overlay.",
+        "text_zones": { 
+          "primary": "right third (1280-1920px)" 
+        }
+      }
+    },
+    {
+      "id": "13",
+      "layout": "title-slide",
+      "content": {
+        "title": "Ready to Crush September 30th!",
+        "subtitle": "Full Feature Set · Unified Team · Let's GO! 🚀"
+      },
+      "presenterNotes": "Close with maximum energy - we've got this!",
+      "background": {
+        "filename": "SLIDE-13-Victory.png",
+        "concept": "Victory",
+        "prompt": "Team celebration scene with confetti and raised fists; bright explosion of orange and yellow light with blue accents; September 30 calendar page transforming into rocket ship; middle 40% kept darker for title overlay.",
+        "text_zones": { 
+          "primary": "center 40%" 
+        }
+      }
+    }
+  ],
+
+  "icons": [
+    {
+      "filename": "IC-Rocket.png",
+      "prompt": "Minimalist orange outline rocket ship icon with motion trails, transparent background.",
+      "transparent": true
+    },
+    {
+      "filename": "IC-Lightning.png",
+      "prompt": "Minimalist electric blue outline lightning bolt icon with glow effect, transparent background.",
+      "transparent": true
+    },
+    {
+      "filename": "IC-Team.png",
+      "prompt": "Minimalist yellow outline of connected team members icon, transparent background.",
+      "transparent": true
+    },
+    {
+      "filename": "IC-Flow.png",
+      "prompt": "Minimalist orange outline flowing arrow icon suggesting continuous movement, transparent background.",
+      "transparent": true
+    }
+  ],
+
+  "runtime_config": {
+    "reveal_js": {
+      "transition": "slide",
+      "transition_speed": "fast",
+      "background_transition": "slide",
+      "controls": true,
+      "progress": true,
+      "keyboard": true,
+      "touch": true,
+      "hash": true
+    },
+    "responsive_breakpoints": {
+      "tablet": "1200px",
+      "mobile": "768px"
+    },
+    "content_sizing": {
+      "max_height": "75vh",
+      "border_radius": "12px",
+      "backdrop_blur": "10px"
+    }
+  }
+}

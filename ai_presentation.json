@@ -1,0 +1,342 @@
+{
+  "meta": {
+    "title": "Embracing AI: A Developer's Journey into the Future",
+    "short_name": "ai-dev",
+    "version": "1.0.0",
+    "created": "2025-06-23",
+    "theme": "ai_developer_transformation",
+    "description": "Professional presentation about AI transformation in software development"
+  },
+
+  "visual_identity": {
+    "colors": {
+      "primary": "#2D2F92",
+      "secondary": "#6F3EDD", 
+      "accent": "#15D4C8",
+      "text_primary": "#FFFFFF",
+      "text_secondary": "rgba(255,255,255,0.9)",
+      "overlay_bg": "rgba(0,0,0,0.88)",
+      "border": "rgba(21,212,200,0.3)"
+    },
+    "typography": {
+      "font_family": "'Inter', 'Segoe UI', 'Roboto', sans-serif",
+      "title_size": "2.8vw",
+      "subtitle_size": "1.8vw", 
+      "body_size": "1.3vw",
+      "small_size": "1.2vw"
+    },
+    "style_prompt": "Cinematic futuristic tech scene; deep indigo #2D2F92 to violet #6F3EDD palette; electric teal #15D4C8 highlights; dramatic volumetric lighting; ultra-sharp 8K render; no text or watermarks; professional presentation quality.",
+    "atmosphere": "Modern, sophisticated, forward-thinking technology environment with soft volumetric lighting and atmospheric depth"
+  },
+
+  "layout_system": {
+    "layouts": {
+      "title-slide": {
+        "description": "Centered title and subtitle for opening slides",
+        "text_position": "center_center",
+        "text_zone": "50% center, allowing for dramatic background",
+        "max_width": "60vw"
+      },
+      "lf": {
+        "description": "Content on left third, visual elements on right",
+        "text_position": "left_center", 
+        "text_zone": "Left third (0-640px width) dark zone for text",
+        "max_width": "28vw"
+      },
+      "rf": {
+        "description": "Content on right third, visual elements on left",
+        "text_position": "right_center",
+        "text_zone": "Right third (1280-1920px width) dark zone for text", 
+        "max_width": "28vw"
+      },
+      "tb": {
+        "description": "Content in bottom center, visual elements above",
+        "text_position": "bottom_center",
+        "text_zone": "Bottom third (720-1080px height) dark zone for text",
+        "max_width": "50vw"
+      }
+    }
+  },
+
+  "asset_config": {
+    "dimensions": {
+      "background": {
+        "generation_size": "1792x1024",
+        "final_size": [1920, 1080]
+      },
+      "icons": {
+        "generation_size": "1024x1024", 
+        "final_size": [350, 350]
+      }
+    },
+    "naming_convention": "SLIDE-{slide_number:02d}-{concept_name}.png",
+    "output_directory": "assets_generated",
+    "dalle_model": "dall-e-3"
+  },
+
+  "slides": [
+    {
+      "id": "01",
+      "layout": "title-slide",
+      "content": {
+        "title": "Embracing AI",
+        "subtitle": "A Developer's Journey into the Future"
+      },
+      "background": {
+        "filename": "SLIDE-01-Gateway.png",
+        "concept": "Gateway",
+        "prompt": "Epic scene: Developer silhouette stepping through glowing AI portal gateway; flowing code streams and neural network patterns surrounding portal; atmospheric depth with particles; center horizontal band (400-680px height) kept dark and minimal for title text overlay; dramatic backlighting from portal; professional cinematic composition.",
+        "text_zones": {
+          "primary": "center horizontal band (400-680px height)"
+        }
+      }
+    },
+    {
+      "id": "02", 
+      "layout": "tb",
+      "content": {
+        "title": "The AI Revolution is Here",
+        "bullets": [
+          "GPT-4o, Claude 3.5, Gemini 1.5 Pro changing everything",
+          "Devin AI coding autonomously",
+          "Development cycles accelerating exponentially",
+          "The old way of building software is obsolete"
+        ]
+      },
+      "background": {
+        "filename": "SLIDE-02-Constellation.png", 
+        "concept": "Constellation",
+        "prompt": "Majestic sky scene: AI consciousness emerging as floating holographic models GPT-4, Claude, Gemini like digital constellations; ethereal glow effects; cosmic neural networks in background; bottom third (720-1080px height) kept dark with subtle gradient for text overlay; epic scale and atmosphere; star-like AI nodes.",
+        "text_zones": {
+          "primary": "bottom third (720-1080px height)"
+        }
+      }
+    },
+    {
+      "id": "03",
+      "layout": "rf", 
+      "content": {
+        "title": "From Solo to AI-Assisted",
+        "bullets": [
+          "Traditional development: slow, manual, error-prone",
+          "AI-assisted development: fast, intelligent, iterative", 
+          "Pair programming with superintelligent partners",
+          "Focus shifts from typing code to architecting solutions"
+        ]
+      },
+      "background": {
+        "filename": "SLIDE-03-Transformation.png",
+        "concept": "Transformation", 
+        "prompt": "Split transformation scene: left half shows lone developer silhouette in darkness working alone; right half shows same developer illuminated by AI assistance with holographic code helpers; smooth transition between states; right third (1280-1920px width) kept darker for text overlay; dramatic lighting contrast between old and new paradigms.",
+        "text_zones": {
+          "primary": "right third (1280-1920px width)"
+        }
+      }
+    },
+    {
+      "id": "04",
+      "layout": "lf",
+      "content": {
+        "title": "The New Development Workflow", 
+        "bullets": [
+          "Describe what you want in natural language",
+          "AI generates initial implementation",
+          "Iterate and refine through conversation",
+          "Deploy with AI-powered testing and optimization"
+        ]
+      },
+      "background": {
+        "filename": "SLIDE-04-Pipeline.png",
+        "concept": "Pipeline",
+        "prompt": "Futuristic workflow visualization: right side (640-1920px) shows floating 3D pipeline stages - idea lightbulb → AI brain → code generation → deployment rocket; holographic elements with energy connections; left third (0-640px width) kept dark with subtle tech pattern for text overlay; dynamic perspective and flow.",
+        "text_zones": {
+          "primary": "left third (0-640px width)"
+        }
+      }
+    },
+    {
+      "id": "05",
+      "layout": "tb",
+      "content": {
+        "title": "Breaking the Feedback Loop",
+        "text": "The traditional code → test → debug → repeat cycle is being revolutionized by AI that can predict, prevent, and fix issues before they become problems.",
+        "text_class": "small"
+      },
+      "background": {
+        "filename": "SLIDE-05-Shatter.png",
+        "concept": "Shatter", 
+        "prompt": "Dynamic disruption scene: traditional circular development arrows being shattered by AI lightning bolts; fragments transforming into streamlined linear flow; energy explosions and particle effects; center and bottom areas kept darker for text overlay; dramatic action moment with electric teal energy bursts.",
+        "text_zones": {
+          "primary": "center and bottom areas"
+        }
+      }
+    },
+    {
+      "id": "06",
+      "layout": "tb",
+      "content": {
+        "title": "Essential AI Developer Toolkit",
+        "bullets": [
+          "Cursor IDE with AI pair programming",
+          "Claude for architecture and code review",
+          "CodeRabbit for intelligent PR analysis", 
+          "Voice coding for natural interaction"
+        ]
+      },
+      "background": {
+        "filename": "SLIDE-06-Workstation.png",
+        "concept": "Workstation",
+        "prompt": "Holographic developer workstation floating in space: AI tool interfaces orbiting around central desk - Cursor IDE, Claude chat, CodeRabbit screens; glowing tech interfaces; atmospheric particles; bottom third (720-1080px) kept dark for text overlay; professional futuristic workspace aesthetic.",
+        "text_zones": {
+          "primary": "bottom third (720-1080px)"
+        }
+      }
+    },
+    {
+      "id": "07",
+      "layout": "tb",
+      "content": {
+        "title": "MCP: The Universal AI Interface",
+        "subtitle": "Model Context Protocol connects AI to everything",
+        "bullets": [
+          "Chrome browser automation", 
+          "GitHub repository management",
+          "Figma design integration",
+          "Extensible plugin ecosystem"
+        ]
+      },
+      "background": {
+        "filename": "SLIDE-07-NeuralHub.png",
+        "concept": "NeuralHub",
+        "prompt": "Central neural connection hub: energy streams radiating out to platform nodes showing Chrome, GitHub, Figma icons; interconnected web of connections; pulsing data flows; atmospheric tech environment; bottom third (720-1080px) kept dark for text overlay; organic yet technological design.",
+        "text_zones": {
+          "primary": "bottom third (720-1080px)"
+        }
+      }
+    },
+    {
+      "id": "08",
+      "layout": "rf",
+      "content": {
+        "title": "The Productivity Multiplier",
+        "bullets": [
+          "10x faster prototyping and iteration",
+          "Instant code generation and refactoring", 
+          "Automated testing and documentation",
+          "Focus on creativity, not repetitive tasks"
+        ],
+        "icons": ["IC-Bolt.png", "IC-Arrow.png", "IC-Chat.png", "IC-Compass.png"]
+      },
+      "background": {
+        "filename": "SLIDE-08-Enhancement.png",
+        "concept": "Enhancement",
+        "prompt": "Enhanced developer scene: left side (0-640px) shows developer with neural interface headset; floating productivity metrics, 10x multiplier visualizations, acceleration charts streaming around figure; right third (1280-1920px) kept darker for text overlay; dynamic energy and progress indicators.",
+        "text_zones": {
+          "primary": "right third (1280-1920px)"
+        }
+      }
+    },
+    {
+      "id": "09", 
+      "layout": "lf",
+      "content": {
+        "title": "Architecting at Scale",
+        "bullets": [
+          "AI helps design microservices architecture",
+          "Automated dependency management",
+          "Performance optimization suggestions",
+          "Security vulnerability detection"
+        ]
+      },
+      "background": {
+        "filename": "SLIDE-09-Architect.png",
+        "concept": "Architect",
+        "prompt": "Scale architecture vision: right side (640-1920px) shows architect figure commanding floating holographic microservices topology; 3D system blueprints and cloud infrastructure floating in space; left third (0-640px) kept dark for text overlay; master architect perspective with grand scale.",
+        "text_zones": {
+          "primary": "left third (0-640px)"
+        }
+      }
+    },
+    {
+      "id": "10",
+      "layout": "tb", 
+      "content": {
+        "title": "Cultural Transformation",
+        "subtitle": "From Skeptics to Believers",
+        "text": "The shift from traditional development to AI-assisted coding requires not just new tools, but a fundamental change in mindset and team culture.",
+        "text_class": "small"
+      },
+      "background": {
+        "filename": "SLIDE-10-Evolution.png",
+        "concept": "Evolution",
+        "prompt": "Cultural evolution scene: left side shows grayscale skeptical developer dissolving/fading; right side shows vibrant teal-lit AI-empowered developer emerging; center transition zone (640-1280px width) kept darker for text overlay; symbolic transformation with particle dissolution and reconstruction effects.",
+        "text_zones": {
+          "primary": "center transition zone (640-1280px width)"
+        }
+      }
+    },
+    {
+      "id": "11",
+      "layout": "tb",
+      "content": {
+        "title": "The Future is Now",
+        "subtitle": "Ride the Wave or Get Left Behind", 
+        "text": "The transformation is happening whether we're ready or not. The question isn't if AI will change development—it's whether you'll be leading the change or catching up to it.",
+        "text_class": "small"
+      },
+      "background": {
+        "filename": "SLIDE-11-CodeWave.png",
+        "concept": "CodeWave",
+        "prompt": "Epic code tsunami scene: massive wave of flowing code lines and AI energy surging forward; developer figure surfing/riding the wave of transformation; sunrise gradient lighting indigo to electric teal; upper band (0-360px) and lower band (720-1080px) kept darker for text overlay; sense of momentum and inevitable change.",
+        "text_zones": {
+          "primary": "upper band (0-360px) and lower band (720-1080px)"
+        }
+      }
+    }
+  ],
+
+  "icons": [
+    {
+      "filename": "IC-Bolt.png",
+      "prompt": "Minimalist neon-teal outline lightning-bolt icon, inner glow, transparent.",
+      "transparent": true
+    },
+    {
+      "filename": "IC-Arrow.png", 
+      "prompt": "Minimalist neon-teal outline upward-arrow icon, inner glow, transparent.",
+      "transparent": true
+    },
+    {
+      "filename": "IC-Chat.png",
+      "prompt": "Minimalist neon-teal outline chat-bubble icon, inner glow, transparent.", 
+      "transparent": true
+    },
+    {
+      "filename": "IC-Compass.png",
+      "prompt": "Minimalist neon-teal outline compass icon, inner glow, transparent.",
+      "transparent": true
+    }
+  ],
+
+  "runtime_config": {
+    "reveal_js": {
+      "transition": "slide",
+      "transition_speed": "default",
+      "background_transition": "fade",
+      "controls": true,
+      "progress": true,
+      "keyboard": true,
+      "touch": true,
+      "hash": true
+    },
+    "responsive_breakpoints": {
+      "tablet": "1200px",
+      "mobile": "768px"
+    },
+    "content_sizing": {
+      "max_height": "70vh",
+      "border_radius": "15px",
+      "backdrop_blur": "12px"
+    }
+  }
+}

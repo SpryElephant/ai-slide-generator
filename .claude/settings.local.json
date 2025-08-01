@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(python:*)",
+      "Bash(open index.html)",
+      "Bash(open http://localhost:8000)",
+      "mcp__browser-tools__getNetworkErrors",
+      "mcp__browser-tools__getConsoleErrors",
+      "mcp__browser-tools__takeScreenshot",
+      "Bash(curl:*)",
+      "mcp__browser-tools__getNetworkLogs",
+      "mcp__browser-tools__getConsoleLogs",
+      "Bash(open http://localhost:8000/test.html)",
+      "Bash(open http://localhost:8000/presentation.html)",
+      "Bash(open http://localhost:8000/test-presentation.html)",
+      "Bash(open http://localhost:8000/simple-test.html)",
+      "Bash(open http://localhost:8000/clean-test.html)",
+      "Bash(open http://localhost:8000/test-v2.html)",
+      "Bash(mkdir:*)",
+      "Bash(open \"http://localhost:8000/AI Dev v1/presentation.html\")",
+      "Bash(open \"http://localhost:8000/AI Dev v1/test-simple.html\")",
+      "Bash(open \"http://localhost:8000/AI Dev v1/presentation-clean.html\")",
+      "Bash(open \"http://localhost:8000/AI Dev v1/layout-examples.html\")",
+      "Bash(open \"http://localhost:8000/AI Dev v1/presentation_final.html\")",
+      "Bash(open \"http://localhost:8000/AI Dev v1/presentation_unified.html\")",
+      "Bash(cp:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(chmod:*)",
+      "Bash(ls:*)",
+      "Bash(timeout:*)",
+      "mcp__puppeteer__puppeteer_navigate",
+      "mcp__puppeteer__puppeteer_screenshot",
+      "mcp__puppeteer__puppeteer_evaluate",
+      "Bash(.venv/bin/pip install:*)"
+    ],
+    "deny": []
+  }
+}
